@@ -249,7 +249,7 @@ ______
 
 ```javascript
 inicio
-var idade = leia ('insira sua idade:')
+var idade <- leia ('insira sua idade:')
 se (idade < 16){
     escreva ('Não pode votar!')
 }
@@ -264,7 +264,7 @@ ______
 
 **8)** Considere a implementação da classe base FormaGeometrica em um sistema de modelagem de formas geométricas. Sua tarefa é implementar, utilizando pseudocódigo, as classes derivadas Retangulo e Circulo, que herdam da classe FormaGeometrica, adicionando atributos específicos e métodos para calcular a área de um retângulo e de um círculo, respectivamente.
 
-```
+
 Classe FormaGeometrica:
     Atributos:
         - cor
@@ -275,6 +275,53 @@ Classe FormaGeometrica:
     Método CalcularArea():
         # Implementação genérica para cálculo de área, a ser sobrescrita pelas subclasses.
 
+```javascript
+Classe FormaGeometrica:
+        // Atributos
+        cor: texto
+
+        // Método Construtor
+        Metodo Construtor(cor: texto):
+            // Define a cor da forma geométrica
+            cor <- cor
+
+        // Método para calcular a área (deve ser sobrescrito pelas subclasses)
+        Metodo CalcularArea():
+            // Implementação genérica para cálculo de área, a ser sobrescrita pelas subclasses.
+
+    Classe Retangulo: // Herda da classe FormaGeometrica
+        // Atributos
+        largura: real
+        altura: real
+
+        // Método Construtor
+        Metodo Construtor(cor: texto, largura: real, altura: real):
+            // Chama o construtor da classe base passando a cor como parâmetro
+            Chamar Construtor(cor)
+            // Define largura e altura
+            this.largura <- largura
+            this.altura <- altura
+
+        // Método para calcular a área do retângulo
+        Metodo CalcularArea():
+            // Retorna a área do retângulo
+            Retornar largura * altura
+
+    Classe Circulo: // Herda da classe FormaGeometrica
+        // Atributos
+        raio: real
+
+        // Método Construtor
+        Metodo Construtor(cor: texto, raio: real):
+            // Chama o construtor da classe base passando a cor como parâmetro
+            Chamar Construtor(cor)
+            // Define o raio
+            this.raio <- raio
+
+        // Método para calcular a área do círculo
+        Metodo CalcularArea():
+            // Retorna a área do círculo
+            Retornar PI * raio * raio
 ```
 
 ______
