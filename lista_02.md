@@ -332,7 +332,46 @@ Considere a fórumla de atualização velocidade:
 ```
     velocidade = velocidadeInicial + aceleracao*tempo
 ```
+````JavaScript
+inicio
+Função simularCorrida(distancia, velocidadeMaxima, tempoMaximo, velocidadeInicial, aceleracao):
+    // variáveiss
+    tempo = 0
+    velocidade = velocidadeInicial
+    
+    // Loop de repetição até o carro completar a distância ou atingir o tempo máximo
+    Enquanto verdadeiro:
+        // Atualizar o tempo
+        tempo = tempo + 1
+        
+        // Calculando a nova velocidade usando a fórmula de atualização da velocidade
+        novaVelocidade = velocidadeInicial + aceleracao * tempo
+        
+        // Verificando se a nova velocidade ultrapassa a velocidade máxima
+        Se novaVelocidade > velocidadeMaxima:
+            velocidade = velocidadeMaxima
+        Senão:
+            velocidade = novaVelocidade
+        
+        // Calculando a distância percorrida com a velocidade atual
+        distanciaPercorrida = velocidade * tempo
+        
+        // vendo se a distância percorrida ultrapassa a distância total
+        Se distanciaPercorrida >= distancia:
+            Retornar tempo  // Corrida completada dentro do tempo máximo
+        
+        // vendo se o tempo excede o tempo máximo
+        Se tempo >= tempoMaximo:
+            Retornar -1  // Corrida não completada dentro do tempo máximo
 
+// Exemplo de uso da função
+tempoCorrida = simularCorrida(distancia=100, velocidadeMaxima=30, tempoMaximo=10, velocidadeInicial=10, aceleracao=2)
+Se tempoCorrida > 0:
+    Imprimir "O carro completou a corrida em", tempoCorrida, "minutos."
+Senão:
+    Imprimir "O carro não conseguiu completar a corrida dentro do tempo máximo."
+fimalgoritmo
+````
 ______
 
 **10)** Uma matriz é uma coleção bidimensional de elementos, organizados em linhas e colunas. A seguir, é fornecida a implementação da função SomaDeMatrizes(matrizA, matrizB), que calcula a soma de duas matrizes. Sua tarefa é implementar uma função semelhante, porém que realize a multiplicação de duas matrizes.
@@ -362,3 +401,34 @@ matrizSoma <- SomaDeMatrizes(matrizA, matrizB)
 Escrever("Soma das matrizes:")
 ImprimirMatriz(matrizSoma)
 ```
+```` Javascript
+inicio
+Função MultiplicacaoDeMatrizes(matrizA, matrizB):
+    //Verifica se o número de colunas da matriz A é igual ao número de linhas da matriz B
+    Se tamanho(matrizA[0]) ≠ tamanho(matrizB) então:
+        Retornar "Não é possível multiplicar as matrizes. Dimensões incompatíveis."
+    Senão:
+        # Definindo as dimensões da matriz resultante
+        linhas <- tamanho(matrizA)
+        colunas <- tamanho(matrizB[0])
+        matrizResultado <- novaMatriz(linhas, colunas)
+
+        //Loop para calcular o valor de cada elemento da matriz resultante
+        Para i de 0 até linhas-1 faça:
+            Para j de 0 até colunas-1 faça:
+                elemento <- 0
+                Para k de 0 até tamanho(matrizA[0])-1 faça:
+                    elemento <- elemento + matrizA[i][k] * matrizB[k][j]
+                matrizResultado[i][j] <- elemento
+
+        Retornar matrizResultado
+
+//Exemplo de uso da função
+matrizA <- [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrizB <- [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+
+matrizProduto <- MultiplicacaoDeMatrizes(matrizA, matrizB)
+Escrever("Produto das matrizes:")
+ImprimirMatriz(matrizProduto)
+fimalgoritmo
+````
